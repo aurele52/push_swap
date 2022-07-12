@@ -6,7 +6,7 @@
 /*   By: audreyer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:15:39 by audreyer          #+#    #+#             */
-/*   Updated: 2022/07/09 16:33:21 by audreyer         ###   ########.fr       */
+/*   Updated: 2022/07/12 19:15:22 by audreyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ void	ft_threesort(t_all *all)
 		nbr++;
 	if (nbr == 1)
 		ft_sa(all);
-	if (ft_voidtoint(all->a->start->content) > ft_voidtoint(all->a->start->next->content))
+	if (ft_voidtoint(all->a->start->content)
+		> ft_voidtoint(all->a->start->next->content))
 		ft_ra(all);
-	if (ft_voidtoint(all->a->start->next->content) > ft_voidtoint(all->a->start->next->next->content))
+	if (ft_voidtoint(all->a->start->next->content)
+		> ft_voidtoint(all->a->start->next->next->content))
 		ft_rra(all);
 }
 
@@ -50,7 +52,8 @@ void	ft_transfer(t_all *all)
 			&& all->a->start != max && all->a->start != min)
 		{
 			ft_pb(all);
-			if (ft_voidtoint(all->b->start->content) < ft_voidtoint(median->content))
+			if (ft_voidtoint(all->b->start->content)
+				< ft_voidtoint(median->content))
 				ft_rb(all);
 		}
 		else

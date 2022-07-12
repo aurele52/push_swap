@@ -6,7 +6,7 @@
 /*   By: audreyer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 19:20:32 by audreyer          #+#    #+#             */
-/*   Updated: 2022/07/12 18:42:00 by audreyer         ###   ########.fr       */
+/*   Updated: 2022/07/12 19:16:05 by audreyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	ft_fivesort(t_all *all)
 	{
 		if (all->a->start == ft_lstmin(all->a))
 			ft_pb(all);
-		else if (all->a->end == ft_lstmin(all->a) || all->a->end->back == ft_lstmin(all->a))
+		else if (all->a->end == ft_lstmin(all->a)
+			|| all->a->end->back == ft_lstmin(all->a))
 			ft_rra(all);
 		else
 			ft_ra(all);
@@ -44,8 +45,6 @@ void	push_swap(char *str, t_pos *garbage)
 		ft_aurelesort(all);
 	ft_exit(garbage, 0);
 }
-
-
 
 int	main(int argc, char **argv)
 {
