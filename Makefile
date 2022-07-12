@@ -6,7 +6,7 @@
 #    By: audreyer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 22:50:22 by audreyer          #+#    #+#              #
-#    Updated: 2022/07/12 18:33:41 by audreyer         ###   ########.fr        #
+#    Updated: 2022/07/12 19:00:28 by audreyer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ FLAG = -Wall -Werror -Wextra -g3
 
 SRC_DIR = src/
 
-OBJ_DIR = obj/
+OBJ_DIR = src/
 
 FILE_MAIN= main.c
 
@@ -50,7 +50,7 @@ OBJ_MAIN = $(SRC_MAIN:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 .c.o:
-	$(CC) $(FLAG) -I include -c $< -o $(subst src/,obj/,$(<:.c=.o))
+	$(CC) $(FLAG) -I include -c $< -o $(<:.c=.o)
 
 INC = include/push_swap.h
 
@@ -58,22 +58,22 @@ INC_LIBFT = include/libft.h
 
 LIB = libft.a
 
-all:	$(LIB) $(NAME) $(BONUS)
+all:	$(LIB) $(NAME) bonus
 
 $(NAME):	$(OBJ) $(INC) $(INC_LIBFT) $(OBJ_MAIN)
-	$(CC) $(FLAG) $(subst src/,obj/,$(OBJ) $(OBJ_MAIN)) $(LIB) -o $(NAME)
+	$(CC) $(FLAG) $(OBJ) $(OBJ_MAIN) $(LIB) -o $(NAME)
 
 clean:
-	rm -f $(subst src/,obj/,$(OBJ) $(OBJ_MAIN) $(OBJ_BONUS)) libft.a
+	rm -f $(OBJ) $(OBJ_MAIN) $(OBJ_BONUS) libft.a
 
 fclean:	clean
 	rm -f $(NAME) $(BONUS)
 
 bonus:	$(OBJ) $(INC) $(INC_LIBFT) $(OBJ_BONUS)
-	$(CC) $(FLAG) $(subst src/,obj/,$(OBJ) $(OBJ_BONUS)) $(LIB) -o $(BONUS)
+	$(CC) $(FLAG) $(OBJ) $(OBJ_BONUS) $(LIB) -o $(BONUS)
 
 fclean_bonus :
-	rm -f $(subst src/,obj/,$(OBJ) $(OBJ_CHECKER)) $(BONUS)
+	rm -f $(OBJ) $(OBJ_CHECKER) $(BONUS)
 
 $(LIB)	:
 	make -C ./libft/
