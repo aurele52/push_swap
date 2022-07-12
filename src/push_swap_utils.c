@@ -6,7 +6,7 @@
 /*   By: audreyer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:18:53 by audreyer          #+#    #+#             */
-/*   Updated: 2022/07/09 14:21:23 by audreyer         ###   ########.fr       */
+/*   Updated: 2022/07/12 18:53:59 by audreyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int	ft_correct(t_all *all)
 			return (0);
 		i = i->next;
 	}
+	ft_exit(all->free, 0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: audreyer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 19:20:32 by audreyer          #+#    #+#             */
-/*   Updated: 2022/07/09 17:18:08 by audreyer         ###   ########.fr       */
+/*   Updated: 2022/07/12 18:42:00 by audreyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	push_swap(char *str, t_pos *garbage)
 	all = 0;
 	all = ft_init(str, garbage);
 	if (all == 0)
-		ft_exit(garbage, "Bad allocation");
+		ft_exit(garbage, "Error");
 	if (ft_checkall(all) == 1 || ft_correct(all) == 1)
-		ft_exit(garbage, "Bad allocation");
+		ft_exit(garbage, "Error");
 	if (*all->a->size == 5)
 		ft_fivesort(all);
 	else

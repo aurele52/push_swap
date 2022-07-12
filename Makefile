@@ -6,7 +6,7 @@
 #    By: audreyer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 22:50:22 by audreyer          #+#    #+#              #
-#    Updated: 2022/07/10 17:47:37 by audreyer         ###   ########.fr        #
+#    Updated: 2022/07/12 18:33:41 by audreyer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ clean:
 fclean:	clean
 	rm -f $(NAME) $(BONUS)
 
-$(BONUS):	$(OBJ) $(INC) $(INC_LIBFT) $(OBJ_BONUS)
+bonus:	$(OBJ) $(INC) $(INC_LIBFT) $(OBJ_BONUS)
 	$(CC) $(FLAG) $(subst src/,obj/,$(OBJ) $(OBJ_BONUS)) $(LIB) -o $(BONUS)
 
 fclean_bonus :
