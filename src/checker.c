@@ -6,7 +6,7 @@
 /*   By: audreyer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:22:03 by audreyer          #+#    #+#             */
-/*   Updated: 2022/07/09 15:36:06 by audreyer         ###   ########.fr       */
+/*   Updated: 2022/07/15 19:58:00 by audreyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ int	main(int argc, char **argv)
 {
 	t_pos	*garbage;
 
-	if (argc != 2)
+	if (argc == 1)
 		ft_exit(0, 0);
 	if (ft_test(argv[1]) == 1 || ft_atoitest(argv[1]))
 		ft_exit(0, "Error");
 	garbage = ft_setpos(0);
-	if (ft_checker(argv[1], garbage) == 1)
+	if (ft_checker(ft_unsplit(&argv[1], " ", garbage), garbage) == 1)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
