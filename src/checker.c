@@ -6,7 +6,7 @@
 /*   By: audreyer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:22:03 by audreyer          #+#    #+#             */
-/*   Updated: 2022/07/15 19:58:00 by audreyer         ###   ########.fr       */
+/*   Updated: 2022/07/21 19:35:50 by audreyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	ft_checker(char *liste, t_pos *garbage)
 
 	allinstruction = " ra rb rr rra rrb rrr pa pb sa sb ss ";
 	all = 0;
+	if (ft_strlen(liste) == 0)
+		ft_exit(0, 0);
 	all = ft_init(liste, garbage);
 	if (all == 0 || ft_checkall(all) == 1)
 		ft_exit(garbage, "Error");

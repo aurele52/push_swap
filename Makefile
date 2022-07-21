@@ -6,7 +6,7 @@
 #    By: audreyer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 22:50:22 by audreyer          #+#    #+#              #
-#    Updated: 2022/07/17 20:30:10 by audreyer         ###   ########.fr        #
+#    Updated: 2022/07/21 19:37:22 by audreyer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ BONUS = checker
 
 CC = gcc
 
-FLAG = -Wall -Werror -Wextra -fsanitize=address -g
+FLAG = -Wall -Werror -Wextra
 
 SRC_DIR = src/
 

@@ -6,7 +6,7 @@
 #    By: audreyer <audreyer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/10 01:52:00 by audreyer          #+#    #+#              #
-#    Updated: 2022/07/10 17:34:25 by audreyer         ###   ########.fr        #
+#    Updated: 2022/07/21 19:37:35 by audreyer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = gcc
 
-FLAG = -Wall -Werror -Wextra -g3
+FLAG = -Wall -Werror -Wextra
 
 RM = rm -rf
 
