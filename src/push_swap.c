@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-t_all	*ft_init(char *str, t_pos *free)
-{
+t_all	*ft_init(char *str, t_pos *free) {
 	t_all	*all;
 	t_pos	*posa;
 	t_pos	*posb;
@@ -34,14 +33,12 @@ t_all	*ft_init(char *str, t_pos *free)
 	return (all);
 }
 
-void	ft_aurelesort(t_all *all)
-{
+void	ft_aurelesort(t_all *all) {
 	t_list	*min;
 
 	ft_transfer(all);
 	ft_threesort(all);
-	while (*all->b->size != 0)
-	{
+	while (*all->b->size != 0) {
 		if (ft_movebest(all, ft_best(all)) == 0)
 			return ;
 	}
@@ -54,13 +51,11 @@ void	ft_aurelesort(t_all *all)
 			ft_ra(all);
 }
 
-int	ft_test(char *str)
-{
+int	ft_test(char *str) {
 	int	i;
 
 	i = 0;
-	while (str[i])
-	{
+	while (str[i]) {
 		if (str[0] == ' ')
 			return (1);
 		if ((str[i] == ' ' && (str[i + 1] == 0 || str[i + 1] == ' '))

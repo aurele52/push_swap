@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-void	ft_swap(t_pos *pos)
-{
+void	ft_swap(t_pos *pos) {
 	void	*mem;
 
 	mem = pos->start->content;
@@ -21,21 +20,18 @@ void	ft_swap(t_pos *pos)
 	pos->start->next->content = mem;
 }
 
-void	ft_sa(t_all *all)
-{
+void	ft_sa(t_all *all) {
 	ft_swap(all->a);
 	write(1, "sa\n", 3);
 }
 
-void	ft_ss(t_all *all)
-{
+void	ft_ss(t_all *all) {
 	ft_swap(all->a);
 	ft_swap(all->b);
 	write(1, "ss\n", 3);
 }
 
-void	ft_sb(t_all *all)
-{
+void	ft_sb(t_all *all) {
 	ft_swap(all->b);
 	write(1, "sb\n", 3);
 }

@@ -53,13 +53,11 @@ INC = include/push_swap.h
 
 INC_LIBFT = include/libft.h
 
-LIB = libft/libft.a
+LIB = $(SRC_DIR)libft.a
 
 all:
-	make -C ./libft/
 	make $(NAME)
 
-.PHONY:bonus
 bonus:$(BONUS)
 
 $(NAME):	$(LIB) $(OBJ) $(INC) $(INC_LIBFT) $(OBJ_MAIN)
@@ -70,11 +68,9 @@ $(NAME):	$(LIB) $(OBJ) $(INC) $(INC_LIBFT) $(OBJ_MAIN)
 
 clean:
 	rm -f $(OBJ) $(OBJ_MAIN) $(OBJ_BONUS)
-	make clean -C ./libft/
 
 fclean:	clean
-	rm -f $(NAME) $(BONUS) libft.a
-	make fclean -C ./libft/
+	rm -f $(NAME) $(BONUS)
 
 $(BONUS):	$(OBJ) $(INC) $(INC_LIBFT) $(OBJ_BONUS)
 	$(CC) $(FLAG) $(OBJ) $(OBJ_BONUS) $(LIB) -o $(BONUS)
@@ -82,28 +78,6 @@ $(BONUS):	$(OBJ) $(INC) $(INC_LIBFT) $(OBJ_BONUS)
 fclean_bonus :
 	rm -f $(OBJ) $(OBJ_CHECKER) $(BONUS)
 
-$(LIB)	:
-	make -C ./libft/
-
 re			: fclean all 
 
-git:
-	make git -C ./libft/
-	rm -f libft.a
-	make fclean
-	git add obj
-	git add src
-	git add Makefile
-	git add include/
-	read S; git commit -m $${S}
-	git push
-
-fini:
-	rm libft
-	cp -r ../libft .
-	rm -rf libft/.git
-	make fclean -C ./libft/
-	git add libft
-	make git
-
-.PHONY: all clean fclean re libft
+.PHONY: bonus all clean fclean re libft

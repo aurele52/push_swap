@@ -6,12 +6,13 @@
 /*   By: audreyer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:04:18 by audreyer          #+#    #+#             */
-/*   Updated: 2022/07/04 17:51:42 by audreyer         ###   ########.fr       */
+/*   Updated: 2022/08/08 15:54:09 by audreyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define BUFFER_SIZE 2000
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -39,7 +40,6 @@ int		**ft_splitint(char *c, t_pos *free);
 void	ft_exit(t_pos *garbage, char *str);
 int		ft_abs(int a);
 char	*get_next_line(int fd, t_pos *free);
-int		ft_voidtoint(int *i);
 void	*ft_mallocint(int i, t_pos *free);
 void	*ft_malloc(int size, t_pos *free);
 t_list	*ft_lstmin(t_pos *pos);

@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-t_move	*ft_bestmove(t_all *all, t_list *list)
-{
+t_move	*ft_bestmove(t_all *all, t_list *list) {
 	t_move	*move;
 
 	move = ft_malloc(sizeof(*move), all->free);
@@ -41,21 +40,18 @@ t_move	*ft_bestmove(t_all *all, t_list *list)
 	return (ft_moveclean(move));
 }
 
-t_move	*ft_best(t_all *all)
-{
+t_move	*ft_best(t_all *all) {
 	t_list	*mem;
 	t_move	*yolo;
 	t_move	*bestmove;
 
 	mem = all->b->start;
 	bestmove = 0;
-	while (mem != all->b->start || bestmove == 0)
-	{
+	while (mem != all->b->start || bestmove == 0) {
 		yolo = ft_bestmove(all, mem);
 		if (yolo == 0)
 			return (0);
-		if (bestmove == 0 || yolo->movenbr < bestmove->movenbr)
-		{
+		if (bestmove == 0 || yolo->movenbr < bestmove->movenbr) {
 			bestmove = yolo;
 			if (bestmove->movenbr == 0 || bestmove->movenbr == 1)
 				return (bestmove);
@@ -65,56 +61,46 @@ t_move	*ft_best(t_all *all)
 	return (bestmove);
 }
 
-void	ft_intremoveonevaria(int i, ...)
-{
+void	ft_intremoveonevaria(int i, ...) {
 	va_list	param;
 	int		*p;
 
 	va_start(param, i);
-	while (i > 0)
-	{
+	while (i > 0) {
 		p = va_arg(param, int *);
 		(*p)--;
 		i--;
 	}
 }
 
-int	ft_movebest2(t_all *all, t_move *move)
-{
-	while (move->rra != 0)
-	{
+int	ft_movebest2(t_all *all, t_move *move) {
+	while (move->rra != 0) {
 		ft_rra(all);
 		move->rra--;
 	}
-	while (move->rb != 0)
-	{
+	while (move->rb != 0) {
 		ft_rb(all);
 		move->rb--;
 	}
-	while (move->rrb != 0)
-	{
+	while (move->rrb != 0) {
 		ft_rrb(all);
 		move->rrb--;
 	}
 	return (1);
 }
 
-int	ft_movebest(t_all *all, t_move *move)
-{
+int	ft_movebest(t_all *all, t_move *move) {
 	if (move == 0)
 		return (1);
-	while (move->rs != 0)
-	{
+	while (move->rs != 0) {
 		ft_intremoveonevaria(3, &move->rb, &move->ra, &move->rs);
 		ft_rs(all);
 	}
-	while (move->rrs != 0)
-	{
+	while (move->rrs != 0) {
 		ft_intremoveonevaria(3, &move->rrb, &move->rra, &move->rrs);
 		ft_rrs(all);
 	}
-	while (move->ra != 0)
-	{
+	while (move->ra != 0) {
 		ft_ra(all);
 		move->ra--;
 	}

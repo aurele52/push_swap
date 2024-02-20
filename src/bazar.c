@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-t_move	*ft_moveclean(t_move *mv)
-{
+t_move	*ft_moveclean(t_move *mv) {
 	if (mv->upup <= mv->updown && mv->upup <= mv->downup
 		&& mv->upup <= mv->downdown)
 		ft_setintzerovaria(3, &mv->rra, &mv->rrb, &mv->rrs);
@@ -30,19 +29,16 @@ t_move	*ft_moveclean(t_move *mv)
 	return (mv);
 }
 
-int	ft_checkall(t_all *all)
-{
+int	ft_checkall(t_all *all) {
 	t_list	*a;
 	t_list	*b;
 
 	a = all->a->start;
 	b = 0;
-	while (b == 0 || a != all->a->start)
-	{
+	while (b == 0 || a != all->a->start) {
 		b = a->next;
-		while (b != all->a->start)
-		{
-			if (ft_voidtoint(b->content) == ft_voidtoint(a->content))
+		while (b != all->a->start) {
+			if (*((int *)b->content) == *((int *)a->content))
 				return (1);
 			b = b->next;
 		}

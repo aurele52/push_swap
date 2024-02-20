@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-void	ft_fonction_tab(int emp, t_all *all, t_pos *garbage)
-{
+void	ft_fonction_tab(int emp, t_all *all, t_pos *garbage) {
 	if (emp != 0 && emp != 3 && emp != 6 && emp != 9 && emp != 13
 		&& emp != 17 && emp != 21
 		&& emp != 24 && emp != 27 && emp != 30 && emp != 33)
@@ -36,8 +35,7 @@ void	ft_fonction_tab(int emp, t_all *all, t_pos *garbage)
 		ft_swap(all->b);
 }
 
-char	*ft_space(char *str, t_all *all, t_pos *garbage)
-{
+char	*ft_space(char *str, t_all *all, t_pos *garbage) {
 	char	*ret;
 	int		i;
 
@@ -57,8 +55,7 @@ char	*ft_space(char *str, t_all *all, t_pos *garbage)
 	return (ret);
 }
 
-int	ft_checker(char *liste, t_pos *garbage)
-{
+int	ft_checker(char *liste, t_pos *garbage) {
 	char	*str;
 	t_all	*all;
 	char	*allinstruction;
@@ -71,8 +68,7 @@ int	ft_checker(char *liste, t_pos *garbage)
 	if (all == 0 || ft_checkall(all) == 1)
 		ft_exit(garbage, "Error");
 	str = get_next_line(0, garbage);
-	while (str != 0)
-	{
+	while (str != 0) {
 		ft_fonction_tab(ft_strstr(allinstruction,
 				ft_space(str, all, garbage)), all, garbage);
 		str = get_next_line(0, garbage);
@@ -82,8 +78,7 @@ int	ft_checker(char *liste, t_pos *garbage)
 	return (0);
 }
 
-int	main(int argc, char **argv)
-{
+int	main(int argc, char **argv) {
 	t_pos	*garbage;
 
 	if (argc == 1)

@@ -10,12 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-void	ft_fivesort(t_all *all)
-{
-	while (*all->a->size != 3)
-	{
+void	ft_fivesort(t_all *all) {
+	while (*all->a->size != 3) {
 		if (all->a->start == ft_lstmin(all->a))
 			ft_pb(all);
 		else if (all->a->end == ft_lstmin(all->a)
@@ -29,8 +27,7 @@ void	ft_fivesort(t_all *all)
 	ft_pa(all);
 }
 
-void	push_swap(char *str, t_pos *garbage)
-{
+void	push_swap(char *str, t_pos *garbage) {
 	t_all	*all;
 
 	all = 0;
@@ -48,19 +45,16 @@ void	push_swap(char *str, t_pos *garbage)
 	ft_exit(garbage, 0);
 }
 
-int	ft_testargv(char **argv, int argc)
-{
+int	ft_testargv(char **argv, int argc) {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	while (j != argc)
-	{
+	while (j != argc) {
 		if (ft_strlen(argv[j]) == 0)
 			return (1);
-		while (argv[j][i])
-		{
+		while (argv[j][i]) {
 			if (argv[j][i] == ' ')
 				return (1);
 			i++;
@@ -71,8 +65,7 @@ int	ft_testargv(char **argv, int argc)
 	return (0);
 }
 
-int	main(int argc, char **argv)
-{
+int	main(int argc, char **argv) {
 	char	*str;
 	t_pos	*garbage;
 
