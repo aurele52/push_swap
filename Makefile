@@ -3,28 +3,13 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: audreyer <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: audreyer <audreyer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/21 22:50:22 by audreyer          #+#    #+#              #
-#    Updated: 2022/07/21 19:37:22 by audreyer         ###   ########.fr        #
+#    Created: 2022/07/10 01:52:00 by audreyer          #+#    #+#              #
+#    Updated: 2022/08/08 15:54:43 by audreyer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-NAME = push_swap
-
-BONUS = checker
-
-CC = gcc
-
-FLAG = -Wall -Werror -Wextra
-
-SRC_DIR = src/
-
-OBJ_DIR = src/
-
-FILE_MAIN= main.c
-
-FILE_BONUS= checker.c
+#
 
 FILE=	aurele_sort_utils_2.c	\
 	aurele_sort_utils.c	\
@@ -37,47 +22,64 @@ FILE=	aurele_sort_utils_2.c	\
 	ft_atoitest.c	\
 	swap.c
 
-SRC_MAIN = $(SRC_DIR)$(FILE_MAIN)
-
-SRC_BONUS = $(SRC_DIR)$(FILE_BONUS)
+SRC_DIR = src/
 
 SRC = $(addprefix $(SRC_DIR),$(FILE))
 
 OBJ = $(SRC:.c=.o)
 
-OBJ_MAIN = $(SRC_MAIN:.c=.o)
+DOBJ		=	${SRC:.c=.d}
 
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
+NAME = push_swap
 
 INC = include/push_swap.h
 
+CC = gcc
+
+FLAGS		=	-g -Wall -Werror -Wextra -MMD
+
+RM = rm -rf
+
+all: $(NAME)
+
+-include ${DOBJ}
+
+.c.o:
+			$(CC) $(FLAGS) -I include -c $< -o $(<:.c=.o)
+
+$(NAME):	$(LIB) $(OBJ) $(INC) $(INC_LIBFT) $(OBJ_MAIN)
+	$(CC) $(FLAGS) $(OBJ) $(OBJ_MAIN) $(LIB) -o $(NAME)
+
+clean:
+	${RM} $(OBJ) $(OBJ_MAIN) $(OBJ_BONUS) ${DOBJ_MAIN} ${DOBJ} ${DOBJB} 
+
+fclean: clean
+		$(RM) $(NAME) $(BONUS)
+
+re:		fclean all
+
 INC_LIBFT = include/libft.h
+
+BONUS = checker
 
 LIB = $(SRC_DIR)libft.a
 
-all:
-	make $(NAME)
 
-bonus:$(BONUS)
+SRC_MAIN = $(SRC_DIR)$(FILE_MAIN)
+SRC_BONUS = $(SRC_DIR)$(FILE_BONUS)
 
-$(NAME):	$(LIB) $(OBJ) $(INC) $(INC_LIBFT) $(OBJ_MAIN)
-	$(CC) $(FLAG) $(OBJ) $(OBJ_MAIN) $(LIB) -o $(NAME)
+FILE_MAIN= main.c
 
-.c.o:
-	$(CC) $(FLAG) -I include -c $< -o $(<:.c=.o)
+FILE_BONUS= checker.c
 
-clean:
-	rm -f $(OBJ) $(OBJ_MAIN) $(OBJ_BONUS)
 
-fclean:	clean
-	rm -f $(NAME) $(BONUS)
+OBJ_MAIN = $(SRC_MAIN:.c=.o)
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
-$(BONUS):	$(OBJ) $(INC) $(INC_LIBFT) $(OBJ_BONUS)
-	$(CC) $(FLAG) $(OBJ) $(OBJ_BONUS) $(LIB) -o $(BONUS)
+DOBJB		=	${SRCB:.c=.d}
+DOBJ_MAIN = $(SRC_MAIN:.c=.d)
 
-fclean_bonus :
-	rm -f $(OBJ) $(OBJ_CHECKER) $(BONUS)
+bonus:	$(OBJ) $(INC) $(INC_LIBFT) $(OBJ_BONUS)
+	$(CC) $(FLAGS) $(OBJ) $(OBJ_BONUS) $(LIB) -o $(BONUS)
 
-re			: fclean all 
-
-.PHONY: bonus all clean fclean re libft
+.PHONY: bonus all clean fclean re .c.o
